@@ -1,0 +1,83 @@
+
+{% block body %}
+
+    {{ form_start(form) }}
+        <div class="row">
+            <div class="col l2 s6">
+                <div class="input-field">
+                    {{ form_label(form.codigo) }}
+                    {{ form_widget(form.codigo) }}
+                    <div id="errorCodigo">
+                        {{ form_errors(form.codigo) }}
+                    </div>
+                </div>     
+            </div>
+            <div class="col l6 s2">
+                <div class="input-field">
+                    {{ form_label(form.nombre) }}
+                    {{ form_widget(form.nombre) }}
+                    <div id="errorNombre">
+                        {{ form_errors(form.nombre) }}
+                    </div>
+                </div>     
+            </div>
+            <div class="col l4 s2">
+                <div class="input-field">
+                    {{ form_label(form.marca) }}
+                    {{ form_widget(form.marca) }}
+                    <div id="errorMarca">
+                        {{ form_errors(form.marca) }}
+                    </div>
+                </div>     
+            </div>
+            <div class="col l12 s6">
+                <div class="input-field">
+                    {{ form_label(form.descripcion) }}
+                    {{ form_widget(form.descripcion) }}
+                    <div id="errorDescripcion">
+                        {{ form_errors(form.descripcion) }}
+                    </div>
+                </div>     
+            </div>
+             <div class="col l3 s6">
+                <div class="input-field">
+                    {{ form_label(form.precio) }}
+                    {{ form_widget(form.precio) }}
+                    <div id="errorPrecio">
+                        {{ form_errors(form.precio) }}
+                    </div>
+                </div>     
+            </div>
+             <div class="col l3 s6">
+                <div class="input-field">
+                    {{ form_label(form.color) }}
+                    {{ form_widget(form.color) }}
+                    <div id="errorColor">
+                        {{ form_errors(form.color) }}
+                    </div>
+                </div>     
+            </div>
+             <div class="col l3 s6">
+                <div class="input-field">
+                    {{ form_label(form.estado) }}
+                    {{ form_widget(form.estado) }}
+                    <div id="errorEstado">
+                        {{ form_errors(form.descripcion) }}
+                    </div>
+                </div>     
+            </div>
+             <div class="col l3 s6">
+                <div class="input-field">
+                    {{ form_label(form.dimension) }}
+                    {{ form_widget(form.dimension) }}
+                    <div id="errorDimension">
+                        {{ form_errors(form.dimension) }}
+                    </div>
+                </div>     
+            </div>
+        </div>
+
+        <input type="submit" value="Create" />
+    {{ form_end(form) }}
+
+{% endblock %}

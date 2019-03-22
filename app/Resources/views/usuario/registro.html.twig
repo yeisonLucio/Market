@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+{% block main %}
+  <div id="contenedor_registro">
+    <div class="row">
+      <div class="col l4"></div>
+        <div class="col m12 l4 ">
+          
+          <div id="contenedorFormRegistro" class="z-depth-2">
+            <h3>Registrarse</h3>
+            
+            {{ form_start(form) }}
+            <div class="row">
+                <div class="col l6">
+                    <div class="input-field">
+                        {{ form_label(form.nombres) }}
+                        {{ form_widget(form.nombres) }}
+                        <div id="errorNombres">
+                        {{ form_errors(form.nombres) }}
+                    </div>
+                </div>
+                
+                </div>
+                <div class="col l6">
+                    <div class="input-field">
+                        {{ form_label(form.apellidos) }}
+                        {{ form_widget(form.apellidos) }}
+                        <div id="errorApellidos">
+                          {{ form_errors(form.apellidos) }}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+                <div class="input-field">
+                  {{ form_label(form.username) }}
+                  {{ form_widget(form.username) }}
+                  <div id="errorUsername">
+                  {{ form_errors(form.username) }}
+                  </div>
+                </div>
+               
+                
+                <div class="input-field">
+                  {{ form_label(form.email) }}
+                  {{ form_errors(form.email) }}
+                  {{ form_widget(form.email) }}
+                </div>
+                <div class="input-field">
+                  {{ form_label(form.plainPassword.first) }}
+                  {{ form_errors(form.plainPassword.first) }}  
+                  {{ form_widget(form.plainPassword.first) }}
+                </div>
+                <div class="input-field">
+                  {{ form_label(form.plainPassword.second) }}
+                  {{ form_errors(form.plainPassword.second) }}
+                  {{ form_widget(form.plainPassword.second) }}
+                </div>
+                <div class="preloadCont row">
+                  <div class="col l6">
+                    <a  id="btn_registrarUsuario" href="javascript:registrar('{{ path('registro_usuario') }}')" class="btn teal darken-4 waves-effect waves-light" >Registrar</a>
+                  </div>
+                  <div class="col l6">
+                    <div id="preload" class="preloader-wrapper small">
+                      <div class="spinner-layer spinner-green-only">
+                        <div class="circle-clipper left">
+                          <div class="circle"></div>
+                        </div><div class="gap-patch">
+                          <div class="circle"></div>
+                        </div><div class="circle-clipper right">
+                          <div class="circle"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+            {{ form_end(form)}}
+            <div id="resultado"><div>
+          </div>  
+        </div>  
+        <div class="col l4"></div> 
+    </div>    
+  </div>
+{% endblock %}

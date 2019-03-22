@@ -1,0 +1,81 @@
+{{ form_start(editForm,{'attr': {'id': 'formEditarUsuario'}}) }}
+    <div class="modal-content">
+        <h4>Editar usuario</h4>
+            <div class="row">
+                <div class="col l6 s12">
+                    <div class="">
+                        {{ form_label(editForm.nombres) }}
+                        {{ form_widget(editForm.nombres) }}
+                        <div id="errorNombres">
+                            {{ form_errors(editForm.nombres) }}
+                        </div>
+                    </div>     
+                </div>
+                <div class="col l6 s12">
+                    <div class="">
+                        {{ form_label(editForm.apellidos) }}
+                        {{ form_widget(editForm.apellidos) }}
+                        <div id="errorApellidos">
+                            {{ form_errors(editForm.apellidos) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col l6 s12">
+                    <div class="">
+                        {{ form_label(editForm.username) }}
+                        {{ form_widget(editForm.username) }}
+                        <div id="errorUsername">
+                            {{ form_errors(editForm.username) }}
+                        </div>
+                    </div>  
+                </div>
+                <div class="col l6 s12">
+                    <div class="">
+                        {{ form_label(editForm.email) }}
+                        {{ form_errors(editForm.email) }}
+                        {{ form_widget(editForm.email) }}
+                    </div>
+                </div>
+                <div class="col 12 s12">
+                    <div class="">
+                        {{ form_widget(editForm.plainPassword) }}
+                        <div id="errorplainPassword">
+                            {{ form_errors(editForm.plainPassword) }}
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col l12 s12">
+                    <div class="">
+                        {{ form_widget(editForm.roles) }}
+                    </div>
+                </div>
+            </div>   
+    </div>
+    <div class="modal-footer">
+        <div class="preloadCont row">
+            <div class="col l6">
+                <div id="preload" class="preloader-wrapper small left">
+                    <div class="spinner-layer spinner-green-only">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="gap-patch">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col l6">
+                <a type="submit" class="btn modal-close waves-effect waves-light btn cyan darken-4" href="javascript:guardar('#formEditarUsuario','{{ path('usuario_editar', { 'id':  usuario.id }) }}','2','{{ path('usuario_editar') }}')">Guardar<i class="material-icons left">person_add</i></a>
+                <a class="btn modal-close waves-effect waves-light btn cyan darken-4">Cancelar<i class="material-icons left">close</i></a>
+                <a class="btn" href="javascript:datos()">datos</a>
+            </div>
+            
+        </div>  
+    </div>
+{{ form_end(editForm) }} 
+    

@@ -1,0 +1,64 @@
+
+{% extends rol == 'ROLE_ADMIN' and ajax == 0 
+    ? 'usuario/indexAdmin.html.twig' 
+    : ( rol =='ROLE_USUARIO' and ajax == 0 
+        ? 'usuario/indexUsuario.html.twig'
+        : 'comodin.html.twig') %}
+
+{% block body %}
+<div id="contenedor_listaUsuarios">
+    <div class="row">
+        <div class="col l9 m12 s12">
+            <h3>Listado de usuarios</h3>
+            <a class="waves-effect waves-light btn cyan darken-4 modal-trigger" href="#modal_agregaUsuario" onclick="cargarContenido('#modal_agregaUsuario','{{ path('usuario_nuevo')}}')">Crear usuario<i class="material-icons left">add</i></a>
+        <hr>
+        <table class="centered responsive-table">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Email</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for usuario in usuarios %}
+                <tr>
+                    <td>{{ usuario.username }}</td>
+                    <td>{{ usuario.nombres }}</td>
+                    <td>{{ usuario.apellidos }}</td>
+                
+                    <td>{{ usuario.email }}</td>
+                    <td>
+                        <a class="waves-effect waves-light btn cyan darken-4 tooltipped modal-trigger" href="#modal_editarUsuario" onclick="cargarContenido('#contenido_modalEditarUsuario','{{ path('usuario_editar', { 'id': usuario.id }) }}')" data-position="left" data-tooltip="Editar" ><i class="material-icons">edit</i></a>
+                        <a class="waves-effect waves-light btn red tooltipped" href="javascript:eliminar('{{ path('usuario_eliminar',{ 'id': usuario.id }) }}','2','{{ path('usuario_lista') }}')" data-position="right" data-tooltip="Eliminar"><i class="material-icons">delete</i></a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+
+        </div>
+        <div class="col l3 s0"></div>
+    </div>
+
+    {# ventana modal Agregar usuario #}
+    <div id="modal_agregaUsuario" class="modal modal-fixed-footer">
+        <div class="contenido_modal">
+            {# {{ render(controller('AppBundle:Usuario:new')) }} #}
+        
+        </div>
+    </div>
+
+    {# ventana modal Editar usuario #}
+    <div id="modal_editarUsuario" class="modal modal-fixed-footer">
+        <div id="contenido_modalEditarUsuario">
+            
+        <h3>hola</h3>
+        </div>
+    </div>
+
+</div>    
+{% endblock %}

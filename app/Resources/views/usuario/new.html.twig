@@ -1,0 +1,88 @@
+    {{ form_start(form) }}
+        <div class="modal-content">
+            <h4>Crear usuario</h4>
+                <div class="row">
+                    <div class="col l6 s12">
+                        <div class="input-field">
+                            {{ form_label(form.nombres) }}
+                            {{ form_widget(form.nombres) }}
+                            <div id="errorNombres">
+                                {{ form_errors(form.nombres) }}
+                            </div>
+                        </div>     
+                    </div>
+                    <div class="col l6 s12">
+                        <div class="input-field">
+                            {{ form_label(form.apellidos) }}
+                            {{ form_widget(form.apellidos) }}
+                            <div id="errorApellidos">
+                                {{ form_errors(form.apellidos) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col l6 s12">
+                        <div class="input-field">
+                            {{ form_label(form.username) }}
+                            {{ form_widget(form.username) }}
+                            <div id="errorUsername">
+                                {{ form_errors(form.username) }}
+                            </div>
+                        </div>  
+                    </div>
+                    <div class="col l6 s12">
+                        <div class="input-field">
+                            {{ form_label(form.email) }}
+                            {{ form_errors(form.email) }}
+                            {{ form_widget(form.email) }}
+                        </div>
+                    </div>
+                    <div class="col l6 s12">
+                        <div class="input-field">
+                            {{ form_label(form.plainPassword.first) }}
+                            {{ form_errors(form.plainPassword.first) }}  
+                            {{ form_widget(form.plainPassword.first) }}
+                        </div>
+                    </div>
+                    <div class="col l6 s12">
+                        <div class="input-field">
+                            {{ form_label(form.plainPassword.second) }}
+                            {{ form_errors(form.plainPassword.second) }}
+                            {{ form_widget(form.plainPassword.second) }}
+                        </div>
+                    </div>
+                    <div class="col l12 s12">
+                        <div class="input-field">
+                            {{ form_widget(form.roles) }}
+                        </div>
+                    </div>
+                </div>   
+        </div>
+        <div class="modal-footer">
+            <div class="preloadCont row">
+                <div class="col l6">
+                    <div id="preload" class="preloader-wrapper small left">
+                        <div class="spinner-layer spinner-green-only">
+                            <div class="circle-clipper left">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="gap-patch">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="circle-clipper right">
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col l6">
+                    <a class="btn modal-close waves-effect waves-light btn cyan darken-4" href="javascript:guardar('#formCrearUsuario','{{ path('usuario_nuevo') }}','0','{{ path('usuario_lista')}}')">Crear<i class="material-icons left">person_add</i></a>
+                    <a class="btn modal-close waves-effect waves-light btn cyan darken-4">Cancelar<i class="material-icons left">close</i></a>
+                    <a class="btn" href="javascript:datos()">datos</a>
+                </div>
+            </div>
+        </div>
+    {{ form_end(form) }}
+          
+    
+
+  

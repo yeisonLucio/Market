@@ -1,0 +1,76 @@
+.list-inline {
+  padding-left: 0;
+  margin-left: -5px;
+  list-style: none;
+}
+
+.list-inline > li {
+  display: inline-block;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.tarjeta{
+  padding-right: 0px !important;
+}
+
+.acciones{
+  padding: 10px !important;
+}
+
+.card-mostrar{
+  padding-top: 15px !important;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+
+.opciones{
+  margin-bottom: 0px !important;
+}
+#formSearch{
+  margin-left:200px;
+}
+.tarjeta-contenido{
+  padding: 10px !important;
+}
+
+#contenedorFormLogin{
+  margin-top: 60px;
+  padding: 10px 20px 50px 20px;
+  border-radius: 10px;
+  
+}
+#contenedorFormRegistro{
+  margin-top: 40px;
+  padding: 10px 20px 50px 20px;
+  border-radius: 10px;
+  
+}
+
+.preloadCont{
+  margin-bottom: 0px !important;
+}
+
+
+.tabs .tab a{
+  color:rgb(45, 128, 128);
+} /*Black color to the text*/
+
+.tabs .tab a:hover {
+  background-color:rgb(45, 128, 128);
+  color:rgb(45, 128, 128);
+} /*Text color on hover*/
+
+.tabs .tab a.active {
+  background-color:#ffff;
+  color:rgb(45, 128, 128);
+} /*Background and text color when a tab is active*/
+
+.tabs .indicator {
+  background-color:rgb(45, 128, 128);
+} /*Color of underline*/
+
+.tabs .tab a:focus, .tabs .tab a:focus.active {
+  background-color: #ffff !important;
+
+}

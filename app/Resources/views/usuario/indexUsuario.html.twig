@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block menu_desktop %}
+    <ul class="nav right hide-on-med-and-down">
+        {# <li ><a href="{{ path('homepage') }}">Inicio</a></li>
+        <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Categorias<i class="material-icons right">arrow_drop_down</i></a></li>
+        <li><a href="collapsible.html">Registrarse</a></li> #}
+        <li ><a href="{{ path('producto_lista') }}">Productos</a></li>
+        <li><a href="{{ path('usuario_logout') }}">Salir</a></li>
+    </ul>
+                        
+    <form class=" hide-on-med-and-down" id="formSearch" >
+    <div class="input-field" style="max-width: 400pt;">
+        <input id="search" type="search" placeholder="¿Que buscas?" required>
+        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+        <i class="material-icons">close</i>
+        <div id="searchResults" ></div>
+    </div>
+    </form>
+
+{% endblock %}

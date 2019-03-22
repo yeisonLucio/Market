@@ -1,0 +1,14 @@
+{{ form_start(edit_form, {'attr': {'id': 'formEditarCategoria'}}) }}
+    <div class="modal-content">
+        <h4>Editar usuario</h4>
+        
+            {{ form_widget(edit_form) }}
+          
+    </div>
+    <div class="modal-footer">
+          <a class="btn modal-close waves-effect waves-light btn cyan darken-4" href="javascript:guardar('#formEditarCategoria','{{ path('categoria_editar',{ 'id': categorias.id }) }}','1','{{ path('categoria_lista') }}')">Guardar<i class="material-icons left">save</i></a>
+          <a class="btn modal-close waves-effect waves-light btn cyan darken-4">Cancelar<i class="material-icons left">close</i></a>
+    </div>
+{{ form_end(edit_form) }}
+
+

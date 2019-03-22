@@ -1,0 +1,107 @@
+{% extends rol == 'ROLE_ADMIN' 
+    ? 'usuario/indexAdmin.html.twig' 
+    : 'usuario/indexUsuario.html.twig' %}
+
+{% block body %}
+<div>
+  <div class="row">
+    <div class="col l8 s12">
+      
+    </div>
+    
+  </div>
+        
+</div>
+
+<div class="row">
+  <div class="col l1" style="background-color:red;">
+    <br>
+  </div>
+  {% if rol == 'ROLE_USUARIO' %}
+    <div class="col l2">
+    <ul class="collapsible">
+      {% for categoria in categorias %}
+        <li>
+          <div class="collapsible-header"><i class="material-icons">filter_drama</i>{{ categoria.nombre }}</div>
+          <div class="collapsible-body">
+            <div class="collection">
+            {% for tipo in tipos %}
+                {% if tipo.categoriaId == categoria.id %}  
+                  <a href="#!" class="collection-item"><span class="new badge">4</span>{{ tipo.nombre }}</a>
+                {% endif %}
+            {% endfor %}  
+            </div>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+
+    </div>
+  {% endif %}
+  <div class="col l8">
+    <ul class="tabs">
+      <li class="tab col s2"><a class="active"  href="#lista_productos">listado</a></li>
+      <li class="tab col s2"><a href="#crear_producto">Crear</a></li>
+    </ul>
+    <div id="lista_productos">
+      <ul class="list-inline">
+        <div class="row">
+          {% for producto in productos %}
+              <li>
+                <div class="col s6 m4 l2 tarjeta">
+                  <div class="card sticky-action">
+                    <div class="card-image waves-effect waves-block waves-light ">
+                      {% if producto.ruta == null %}
+                        <img class="activator" src="{{ asset('assets/imagenes/imgDefault.jpg') }}">
+                      {% else %}
+                        <img class="activator" src="{{ asset(producto.ruta) }}">
+                      {% endif %}  
+                    </div>
+                    <div class="card-content tarjeta-contenido">
+                      <span class=""><p>{{ producto.nombre }}</p></span>
+                      <div class="">
+                          <span>{{ producto.precio }}</span>
+                        </div>
+                      
+                    </div>
+                    <div class="card-action acciones">
+                      <div class="row opciones">
+                        <div class="col s6 m6 l6 comprar">
+                        <a href="#"><i class="material-icons">add_shopping_cart</i></a>
+                      
+                        </div>
+                        <div class="col s6 m6 l6">
+                          <span class="card-title activator grey-text text-darken-4" ><i class="material-icons right">more_vert</i></span>
+                        </div>
+
+                      </div>
+                    </div>
+                    <div class="card-reveal card-mostrar">
+                      <span class="card-title"><i class="material-icons right">close</i></span>
+                      <h6>{{ producto.nombre }}</h6>
+                      <p>{{ producto.descripcion }}</p>
+                    </div>
+                  </div>
+                </div>
+              </li> 
+          {% endfor %}
+        </div>
+      </ul>
+    </div>
+    <div id="crear_producto">
+      <div>
+        <div class="row">
+          <div class="col l12">
+            {{ render(controller('AppBundle:Producto:new'))}}
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col l1">
+  </div>
+</div>
+
+ 
+{% endblock %}

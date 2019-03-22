@@ -1,0 +1,61 @@
+
+{% extends rol == 'ROLE_ADMIN' and ajax == 0 
+    ? 'usuario/indexAdmin.html.twig' 
+    : ( rol =='ROLE_USUARIO' and ajax == 0 
+        ? 'usuario/indexUsuario.html.twig'
+        : 'comodin.html.twig') %}
+
+{% block body %}
+
+<div id="contenedor_listaCategoria">
+    <div class="row">
+        <div class="col l9 m12 s12">
+        <h3>Listado de Categorias</h3>
+        <a class="waves-effect waves-light btn cyan darken-4 modal-trigger" href="#modal_agregarCategoria" onclick="cargarContenido('#modal_agregarCategoria','{{ path('categoria_new')}}')">Crear categoria<i class="material-icons left">add</i></a>
+        <hr>
+        <div class="col l8">
+            <table class="centered responsive-table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Aciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for categoria in categorias %}
+                    <tr>
+                        <td>{{ categoria.nombre }}</td>
+                        <td>{{ categoria.descripcion }}</td>
+                        <td>
+                            <a class="waves-effect waves-light btn cyan darken-4 tooltipped modal-trigger" href="#modal_editarCategoria" onclick="cargarContenido('#contenido_modalEditarCategoria','{{ path('categoria_editar', { 'id': categoria.id }) }}')" data-position="left" data-tooltip="Editar" ><i class="material-icons">edit</i></a>
+                            <a class="waves-effect waves-light btn red tooltipped" href="javascript:eliminar('{{ path('categoria_delete',{ 'id': categoria.id }) }}','1','{{ path('categoria_lista') }}')" data-position="right" data-tooltip="Eliminar"><i class="material-icons">delete</i></a>
+                    
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col l4"></div>
+        </div>
+            {# ventana modal Agregar categoria #}
+            <div id="modal_agregarCategoria" class="modal modal-fixed-footer">
+            <div class="contenido_modal">
+               {#  {{ render(controller('AppBundle:Categoria:new')) }} #}
+                
+            </div>
+        </div>
+
+        {# ventana modal Editar categoria #}
+        <div id="modal_editarCategoria" class="modal modal-fixed-footer">
+            <div id="contenido_modalEditarCategoria">
+                
+           
+            </div>
+        </div>
+    
+
+</div>
+
+{% endblock %}

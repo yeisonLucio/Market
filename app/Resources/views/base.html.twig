@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link href="{{ asset('assets/css/materialize.min.css') }}" rel="stylesheet" />
+        <link href="{{ asset('assets/css/estilos.css') }}" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        
+    </head>
+    <body>
+         {% block header %}
+              <header>
+            
+                <nav>
+                   <div class="nav-wrapper cyan darken-4">
+                     <a href="#!" class="brand-logo">Logo</a>
+                     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    
+                     {% block menu_desktop %}
+                        <ul class="nav right hide-on-med-and-down">
+                          <li ><a href="{{ path('homepage') }}">Inicio</a></li>
+                          <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Categorias<i class="material-icons right">arrow_drop_down</i></a></li>
+                          <li><a href="{{ path('registro_usuario') }}">Registrarse</a></li>
+                          <li><a href="{{ path('usuario_login') }}">Iniciar sesión</a></li>
+                        </ul>
+                        
+                         <form class=" hide-on-med-and-down" id="formSearch" >
+                            <div class="input-field" style="max-width: 400pt;">
+                              <input id="search" type="search" placeholder="¿Que buscas?" required>
+                              <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                              <i class="material-icons">close</i>
+                              <div id="searchResults" ></div>
+                            </div>
+                          </form>
+                     {% endblock %}
+                   </div>
+                </nav>
+                   
+                <ul id="dropdown1" class="dropdown-content">
+                 <li><a href="#!">one</a></li>
+                 <li><a href="#!">two</a></li>
+                 <li class="divider"></li>
+                 <li><a href="#!">three</a></li>
+               </ul>
+                   
+                {% block menu_mobile %}    
+                    <ul class=" nav sidenav" id="mobile-demo">
+                     <li class="search">
+                        <form  id="formSearchMobile" >
+                            <div class="input-field" >
+                              <i class="material-icons prefix">search</i>
+                              <input id="searchMobile" type="search" placeholder="¿Que buscas?" style="max-width: 400pt;" required>
+                              <label class="label-icon" for="search"></label>
+                              <i class="material-icons">close</i>
+                              <div id="searchResultsMobile" ></div>
+                            </div>
+                          </form>
+                      </li>
+                      <li><a href="sass.html">Sass</a></li>
+                      <li><a href="badges.html">Components</a></li>
+                      <li><a href="collapsible.html">Javascript</a></li>
+                      <li><a href="mobile.html">Mobile</a></li>
+                    </ul>
+               {% endblock %}
+           
+        </header>
+      {% endblock %}
+     
+        <main>
+          <div id="contenedor_principal" ></div>
+          {% block main %}{% endblock %}
+        </main>
+        <footer>
+        </footer>
+        {% block body %}{% endblock %}
+        {% block javascripts %}
+        <script type="text/javascript" src="{{ asset('assets/js/jquery.min.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('assets/js/materialize.min.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('assets/js/controller.js')}}"></script>
+        {% endblock %}
+        
+    </body>
+</html>

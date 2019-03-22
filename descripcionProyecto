@@ -1,0 +1,5 @@
+Quiero una aplicación web  en donde diferentes Usuarios puedan crear un Cuenta para logearse en el sistema. Con esta cuenta los usuarios podran publicar productos para vender, ademas de que tambien podran filtrar y observar reportes. Asi mismo los usuarios que vendan productos tambien podran comprar prouctos de otros usuarios por lo tanto se debe hacer uso de una pasarela de pago para manejar la compra y venta de productos.
+
+Por otra parte en el sistema se manejaran dos roles los cuales son administrador: que es quien tendra acceso a las mismas funcioanalidades de un usuario normal pero con la diferencia de que podra gestionar todos los usuarios registrados y ademas de que podra observar reportes.
+
+Para manejar la compra de los productos se requiere de la creacion de un carrito de compras en donde los usuarios van a poder ir agregando sus productos, los productos que fueron agregados al carrito permaneceran ahi aunque el usuario salga de la plataforma, por lo tanto se debe crear una tabla en la bd para gestionar los productos.
